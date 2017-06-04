@@ -1,0 +1,70 @@
+<div class="row">
+<div class="col-md-12">
+<form>
+    <input class="form-control" type="text" name="username" placeholder="Enter a username" [(ngModel)]="username" (keyup)="searchusers()" >
+</form>
+</div>
+</div>
+
+
+<div *ngIf="user">    
+   <div class="panel panel-default">
+  <div class="panel-heading">{{user.name}}</div>
+  <div class="panel-body">
+   <div class="row">
+   <div class="col-md-4">
+       <img class="profile-img img-thumbnail" src="{{user.avatar_url}}" />
+       <a class="btn btn-default btn-block" href="{{user.html_url}}" target="_blank">View Profile</a>
+   </div>
+   
+   <div class="col-md-8">
+       <div class="stat">
+       <label class="label label-primary">{{user.public_repos}} public repos</label>
+       <label class="label label-info">{{user.gists}} public gists</label>
+       <label class="label label-warning">{{user.followers}} followers</label>
+       <label class="label label-success">{{user.following}} following</label>
+       </div>
+       <div class="list-group">
+           <li class="list-group-item">
+               <strong>UserName:</strong>{{user.login}}
+           </li>
+            <li class="list-group-item">
+               <strong>Biography:</strong>{{user.bio}}
+           </li>
+
+            <li class="list-group-item">
+               <strong>blog:</strong>{{user.blog}}
+           </li>
+            <li class="list-group-item">
+               <strong>email:</strong>{{user.email}}
+           </li>
+       </div>
+   </div>
+   
+   
+   </div>
+
+
+<div class="panel panel-default">
+  <div class="panel-heading">{{user.name}}</div>
+  <div class="panel-body">
+ <div *ngFor="let repo of Repos">
+  <div class="row">
+                    <div class="col-md-9">
+                        <h4><a href="{{repo.html_url}}" target="_blank">{{repo.name}}</a></h4>
+                        <p>{{repo.description}}</p>
+                    </div>   
+                    <div class="col-md-3">
+                        <span class="label label-primary">{{repo.watchers}} Watchers</span>
+                        <span class="label label-success">{{repo.forks}} Forks</span>
+                    </div>   
+                </div>
+
+</div>
+   
+   </div>
+
+
+
+  </div>
+
